@@ -1,0 +1,40 @@
+{{!
+Це код container файлу для index сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+}}
+
+<div class='page page--background'>
+  <header>
+    {{> back-button }}
+  </header>
+  <form action="" class="page__section">
+    <h1 class="page__title">Registration</h1>
+
+    <div class="form">
+      <div class="form__item">
+        {{> field label="Email" name="email" type="email" placeholder="Enter your email" action="signup.change"}}
+        <span class="form__error" name="email">Error</span>
+      </div>
+      <div class="form__item">
+        {{> field-password label="Password" name="password" placeholder="Enter your password" action="signup.change"}}
+        <span class="form__error" name="email">Error</span>
+      </div>
+      <div class="form__item">
+        {{> field-select label="Role" name="role" placeholder="Choose your role" list=data.role action="signup.change"}}
+        <span class="form__error" name="role">Error</span>
+      </div>
+      <div class="form__item">
+        {{> field-checkbox label="I agree to the processing of my personal data" name="isConfirm" action="signup.change"}}
+        <span class="form__error" name="isConfirm">Error</span>
+      </div>
+    </div>
+    <button class="button" type="button" onclick="signup.submit()">Submit</button>
+
+    <span class="alert alert--error">Error occurs!</span>
+  </form>
+</div>
+
+{{!
+    Цей код містить лише те, що буде виводитись в <body>
+    Адже наш layout/default.hbs має вже структуру HTML
+}}

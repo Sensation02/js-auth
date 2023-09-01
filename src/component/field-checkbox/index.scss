@@ -1,0 +1,45 @@
+@use '../../style' as s;
+@use '../field/index.scss' as field;
+
+.field--checkbox {
+  .field__wrapper {
+    border: 1px solid s.color('light');
+    padding: s.space(4) s.space(3);
+    border-radius: 10px;
+
+    display: flex;
+    gap: s.space(1);
+    align-items: center;
+
+    cursor: pointer;
+    transition: border-color 0.3s;
+
+    &:hover {
+      border-color: s.color(gray);
+    }
+
+    &[active] .field__icon {
+      background-image: url('/svg/check_enb.svg');
+    }
+  }
+
+  .field__label--checkbox {
+    font-size: 16px;
+    color: s.color('dark');
+  }
+
+  .field__icon {
+    display: block;
+    height: 20px;
+    width: 20px;
+
+    background-image: url('/svg/check_dis.svg');
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .field__input--disabled {
+    display: none;
+  }
+}

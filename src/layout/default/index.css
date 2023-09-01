@@ -1,0 +1,43 @@
+:root {
+  background-color: #121212;
+}
+
+html {
+  min-height: 100%;
+  padding: 64px 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  max-width: 420px;
+  width: 100%;
+  margin: auto;
+  height: 812px;
+  background-color: #fff;
+  display: flex;
+}
+
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 32px;
+  padding: 32px 24px;
+  width: 100%;
+  height: 100%;
+}
+.page--background {
+  background-image: url("/svg/background.svg");
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+.page__section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+.page__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #121212;
+}
