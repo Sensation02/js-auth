@@ -5,6 +5,12 @@ const router = express.Router()
 
 const { User } = require('../class/user')
 
+User.create({
+  email: 'test@email.com',
+  password: '12345678',
+  role: 1,
+})
+
 // ================================================================
 // ↙️ тут вводимо шлях (PATH) до сторінки
 router.get('/signup', function (req, res) {
@@ -40,6 +46,37 @@ router.get('/signup', function (req, res) {
     },
   })
   // ↑↑ сюди вводимо JSON дані
+})
+
+router.post('/signup', function (req, res) {
+  const { email, password, role } = req.body
+  console.log(
+    `email: ${email}, password: ${password}, role: ${role}`,
+  )
+
+  if (!email || !password || !role) {
+    res
+      .status(400)
+      .json({ message: 'Error. Please fill all fields' })
+  }
+
+  try {
+    const user = User.getByEmail(email)
+
+    if (user) {
+      return res.status(400).json({
+        message: 'User with such email already exists',
+      })
+    }
+    User.create({ email, password, role })
+    return res.status(200).json({
+      message: 'Successfully signed up!',
+    })
+  } catch (error) {
+    return res
+      .status(400)
+      .json({ message: 'Error. Try again' })
+  }
 })
 
 // Підключаємо роутер до бек-енду:

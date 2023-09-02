@@ -1,7 +1,8 @@
-{{! 
-  Це леяут по замовчюванню, котрий вже містить базову структуру HTML документа
-  І котрий обгортає код container файлів для будь-яких ендпоїнтів
+{{!
+Це леяут по замовчюванню, котрий вже містить базову структуру HTML документа
+І котрий обгортає код container файлів для будь-яких ендпоїнтів
 }}
+
 
 <html>
 
@@ -63,18 +64,9 @@
 
   <body>
 
-    {{!  ↓  ця кострукція показує куди шаблонізатору треба вставляти код з container файлу   }}
+    {{! ↓ ця кострукція показує куди шаблонізатору треба вставляти код з container файлу }}
     {{{body}}}
 
   </body>
-  <script src='dist/js/layout/default/index.js'></script>
-  <script
-    src='dist/js/container/{{name}}/index.js'
-  ></script>
-  {{#each component}}
-    <script
-      src='dist/js/component/{{this}}/index.js'
-    ></script>
-  {{/each}}
 
 </html>

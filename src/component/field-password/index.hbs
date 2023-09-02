@@ -6,15 +6,15 @@
 
   <div class='field__wrapper'>
     <input
+      oninput='{{action}}(this.name, this.value)'
       type='password'
-      class='field__input'
+      class='field__input validation'
       name='{{name}}'
       value='{{value}}'
       placeholder='{{placeholder}}'
-      oninput='signup.change(this.name, this.value)'
     />
     <span
-      onclick='FieldPassword.toggle(this)'
+      onclick=' fieldPassword.toggle(this)'
       class='field__icon'
     ></span>
   </div>

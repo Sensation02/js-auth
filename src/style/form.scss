@@ -1,18 +1,21 @@
-@use './index.scss' as s;
+@use './index' as s;
 
 .form {
   display: flex;
   flex-direction: column;
   gap: s.space(3);
+
   &__item {
     display: flex;
     flex-direction: column;
     gap: s.space(2);
   }
+
   &__error {
-    color: s.color('red');
+    color: s.color(red);
     font-size: 12px;
     display: none;
+
     &--active {
       display: block;
     }
@@ -20,13 +23,26 @@
 }
 
 .button {
-  color: s.color(white);
-  background-color: s.color(main);
+  color: s.color('white');
+  background-color: s.color('main');
   padding: s.space(4) s.space(8);
   border-radius: 10px;
+
   @include s.click;
+
   &:active {
     opacity: 0.3;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: default;
+
+    &:hover,
+    &:active {
+      opacity: 0.5;
+      cursor: default;
+    }
   }
 }
 
@@ -40,12 +56,24 @@
     border-color: s.color(green);
     color: s.color(green);
   }
+
   &--error {
     border-color: s.color(red);
     color: s.color(red);
   }
+
   &--progress {
     border-color: s.color(blue);
     color: s.color(blue);
+  }
+
+  &--disabled {
+    display: none;
+  }
+}
+
+.validation {
+  &--active {
+    border-color: s.color(red) !important;
   }
 }

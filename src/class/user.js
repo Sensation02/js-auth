@@ -7,20 +7,20 @@ class User {
 
   static #list = []
 
-  constructor({ name, email, role }) {
-    this.name = name
-    this.email = email
+  constructor({ email, password, role }) {
+    this.email = String(email).toLowerCase()
+    this.password = password
     this.role = User.#convertRole(role)
   }
 
   static #convertRole = (role) => {
-    role = +role // convert to number
+    role = Number(role)
 
     if (isNaN(role)) {
-      // check if role is not a number
-      this.USER_ROLE.USER
+      role = this.USER_ROLE.USER
     }
-    role = Object.values(this.USER_ROLE).includes(role) // check if role is in the list of roles
+
+    role = Object.values(this.USER_ROLE).includes(role)
       ? role
       : this.USER_ROLE.USER
 
@@ -29,9 +29,20 @@ class User {
 
   static create(data) {
     const user = new User(data)
+
     this.#list.push(user)
+
+    console.log(this.#list)
+  }
+
+  static getByEmail(email) {
+    return (
+      this.#list.find(
+        (user) =>
+          user.email === String(email).toLowerCase(),
+      ) || null
+    )
   }
 }
-module.exports = {
-  User,
-}
+
+module.exports = { User }

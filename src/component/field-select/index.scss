@@ -3,8 +3,8 @@
 
 .field--select {
   .field__select {
-    border: 1px solid s.color(light);
-    background-color: s.color(light);
+    border: 1px solid s.color('box');
+    background-color: s.color('box');
     padding: s.space(4);
     border-radius: 10px;
 
@@ -13,12 +13,9 @@
     align-items: center;
 
     cursor: pointer;
-    transition: border-color 0.2s ease-in-out;
-    position: relative;
+    transition: border-color 0.3s;
 
-    .field__value--placeholder {
-      color: s.color(box);
-    }
+    position: relative;
   }
 
   .field__value {
@@ -43,17 +40,17 @@
 
   .field__label--select {
     font-size: 16px;
-    color: s.color(dark);
+    color: s.color('dark');
   }
 
   .field__icon {
     display: block;
-    height: 20px;
     width: 20px;
+    height: 20px;
 
     background-image: url('/svg/select.svg');
-    background-repeat: no-repeat;
     background-size: contain;
+    background-repeat: no-repeat;
     background-position: center center;
 
     position: absolute;
@@ -61,25 +58,24 @@
     top: calc(50% - 10px);
   }
 
-  .field__option-list {
+  .field__option--list {
     padding: s.space(4);
     display: none;
-    border: 1px solid s.color(light);
+    border: 1px solid s.color('box');
     border-radius: 10px;
     overflow: hidden;
-    background-color: s.color(background);
-    min-height: 160px;
+    background-color: s.color('background');
+    max-height: 160px;
     z-index: 1;
 
     .field__option {
       @include s.click();
-      font-size: 16px;
 
       &:not(:last-of-type) {
         padding-bottom: s.space(4);
       }
 
-      transition: all 0.2s ease-in-out;
+      transition: color 0.3s;
 
       &[active] {
         color: s.color(main);
@@ -96,8 +92,8 @@
 
     position: absolute;
     top: 100%;
-    right: 0;
     width: 100%;
+    right: 0px;
   }
 
   .field__input--disabled {

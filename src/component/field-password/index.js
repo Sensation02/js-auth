@@ -14,4 +14,4 @@ class FieldPassword {
   }
 }
 
-window.FieldPassword = FieldPassword
+window.fieldPassword = FieldPassword
