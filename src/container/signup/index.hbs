@@ -15,35 +15,44 @@
       </div>
 
       <div class="form__item">
-        {{> field-password action="signupForm.change" name="password" label="Password"
+        {{> field-password action="signupForm.change;" name="password" label="Password"
                 placeholder="Enter password"}}
         <span name="password" class="form__error">Error</span>
       </div>
 
       <div class="form__item">
-        {{> field-password action="signupForm.change" name="passwordRepeat" label="Repeat password"
+        {{> field-password action="signupForm.change;" name="passwordRepeat" label="Repeat password"
                 placeholder="Enter password"}}
         <span name="passwordRepeat" class="form__error">Error</span>
       </div>
 
       <div class="form__item">
-        {{> field-select action="signupForm.change" name="role" label="Role"
+        {{> field-select action="signupForm.change;" name="role" label="Role"
                 placeholder="Choose your role" list=data.role}}
         <span name="role" class="form__error">Error</span>
       </div>
 
       <div class="form__item">
-        {{> field-checkbox action="signupForm.change" name="isConfirm" label="Agree with terms and conditions"
+        {{> field-checkbox action="signupForm.change;" name="isConfirm" label="Agree with terms and conditions"
                 }}
         <span name="isConfirm" class="form__error">Error</span>
       </div>
     </div>
 
-    <button onclick="signupForm.submit()" class="button button--disabled" type="button">Sign Up</button>
+    <button onclick="signupForm.submit();" class="button button--disabled" type="button">Sign Up</button>
     <span class="alert alert--disabled">Attention! Error!</span>
   </form>
 
 </div>
+
+{{!-- <script type="module">
+  import { change, submit } from './index.js'
+
+  window.signupForm = {
+    change,
+    submit
+  }
+</script> --}}
 
 {{!
 Цей код містить лише те, що буде виводитись в

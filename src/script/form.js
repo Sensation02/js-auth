@@ -1,9 +1,9 @@
-const emailPattern = /^[w-.]+@([w-]+.)+[w-]{2,}$/
-export const REG_EXP_EMAIL = new RegExp(emailPattern)
-
-const passwordPattern =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]{8,}$/
-export const REG_EXP_PASSWORD = new RegExp(passwordPattern)
+export const REG_EXP_EMAIL = new RegExp(
+  /^[w-.]+@([w-]+.)+[w-]{2,}$/,
+)
+export const REG_EXP_PASSWORD = new RegExp(
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]{8,}$/,
+)
 
 export class Form {
   FIELD_NAME = {}

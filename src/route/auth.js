@@ -1,9 +1,10 @@
 // Підключаємо технологію express для back-end сервера
 const express = require('express')
-// Cтворюємо роутер - місце, куди ми підключаємо ендпоїнти
+// Створюємо роутер - місце, куди ми підключаємо ендпоїнти
 const router = express.Router()
 
 const { User } = require('../class/user')
+const { Confirm } = require('../class/confirm')
 
 User.create({
   email: 'test@email.com',
@@ -16,7 +17,7 @@ User.create({
 router.get('/signup', function (req, res) {
   // res.render генерує нам HTML сторінку
 
-  //              ↙️ cюди вводимо назву файлу з сontainer
+  //              ↙️ сюди вводимо назву файлу з container
   res.render('signup', {
     // вказуємо назву контейнера:
     name: 'signup',
@@ -76,6 +77,96 @@ router.post('/signup', function (req, res) {
     return res
       .status(400)
       .json({ message: 'Error. Try again' })
+  }
+})
+
+router.post('/recovery', function (req, res) {
+  const { email } = req.body
+  console.log(email)
+
+  if (!email) {
+    return res.status(400).json({
+      message: 'Error. Required fields are empty.',
+    })
+  }
+
+  try {
+    const user = User.getByEmail(email)
+
+    if (!user) {
+      return res.status(400).json({
+        message: 'No user exists with such email',
+      })
+    }
+
+    Confirm.create(email)
+    return res.status(200).json({
+      message: 'Check your email for reset code',
+    })
+  } catch (error) {
+    return res.status(400).json({
+      message: error.message,
+    })
+  }
+})
+
+router.get('/recovery', function (req, res) {
+  return res.render('recovery', {
+    name: 'recovery',
+    component: ['back-button', 'field'],
+    title: 'Recovery page',
+
+    data: {},
+  })
+})
+
+router.get('/recovery-confirm', function (req, res) {
+  return res.render('recovery-confirm', {
+    name: 'recovery-confirm',
+    component: ['back-button', 'field', 'field-password'],
+    title: 'Recovery Confirm page',
+    data: {},
+  })
+})
+
+router.post('/recovery-confirm', function (req, res) {
+  const { password, code } = req.body
+  console.log(password, code)
+
+  if (!code || !password) {
+    return res.status(400).json({
+      message: 'Error. Required fields are empty.',
+    })
+  }
+
+  try {
+    const email = Confirm.getData(Number(code))
+
+    if (!email) {
+      return res.status(400).json({
+        message: "Such code doesn't exist",
+      })
+    }
+
+    const user = User.getByEmail(email)
+
+    if (!user) {
+      return res.status(400).json({
+        message: 'No user exists with such email',
+      })
+    }
+
+    user.password = password
+
+    console.log(user)
+
+    return res.status(200).json({
+      message: 'Password is changed successfully',
+    })
+  } catch (error) {
+    return res.status(400).json({
+      message: error.message,
+    })
   }
 })
 
