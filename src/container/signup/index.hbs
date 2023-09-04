@@ -8,55 +8,64 @@
 
   <form class="page__section">
     <h1 class="page__title">Registration</h1>
+
     <div class="form">
       <div class="form__item">
         {{> field action="signupForm.change" label="Email" type="email" name="email" placeholder="Enter email"}}
-        <span name="email" class="form__error">Error</span>
+        <span
+          name="email"
+          class="form__error"
+        >Error</span>
       </div>
 
       <div class="form__item">
-        {{> field-password action="signupForm.change;" name="password" label="Password"
-                placeholder="Enter password"}}
-        <span name="password" class="form__error">Error</span>
+        {{> field-password action="signupForm.change;" name="password" label="Password" placeholder="Enter password"}}
+        <span
+          name="password"
+          class="form__error"
+        >Error</span>
       </div>
 
       <div class="form__item">
-        {{> field-password action="signupForm.change;" name="passwordRepeat" label="Repeat password"
-                placeholder="Enter password"}}
-        <span name="passwordRepeat" class="form__error">Error</span>
+        {{> field-password action="signupForm.change;" name="passwordRepeat" label="Repeat password" placeholder="Enter password"}}
+        <span
+          name="passwordRepeat"
+          class="form__error"
+        >Error</span>
       </div>
 
       <div class="form__item">
         {{> field-select action="signupForm.change;" name="role" label="Role"
-                placeholder="Choose your role" list=data.role}}
-        <span name="role" class="form__error">Error</span>
+        placeholder="Choose your role" list=data.role}}
+        <span
+          name="role"
+          class="form__error"
+        >Error</span>
       </div>
 
       <div class="form__item">
         {{> field-checkbox action="signupForm.change;" name="isConfirm" label="Agree with terms and conditions"
                 }}
-        <span name="isConfirm" class="form__error">Error</span>
+        <span
+          name="isConfirm"
+          class="form__error"
+        >Error</span>
       </div>
     </div>
 
-    <button onclick="signupForm.submit();" class="button button--disabled" type="button">Sign Up</button>
+    <button
+      onclick="signupForm.submit();"
+      class="button button--disabled"
+      type="button"
+    >Sign Up</button>
     <span class="alert alert--disabled">Attention! Error!</span>
+
+    <span class="link__prefix">Have an account? <a href="/login" class="link">Enter</a></span>
   </form>
 
 </div>
 
-{{!-- <script type="module">
-  import { change, submit } from './index.js'
-
-  window.signupForm = {
-    change,
-    submit
-  }
-</script> --}}
-
 {{!
-Цей код містить лише те, що буде виводитись в
-
-<body>
+    Цей код містить лише те, що буде виводитись в <body>
     Адже наш layout/default.hbs має вже структуру HTML
-    }}
+}}
