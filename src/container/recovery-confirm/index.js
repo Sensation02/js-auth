@@ -17,6 +17,7 @@ class RecoveryConfirmForm extends Form {
   }
 
   validate = (name, value) => {
+    // метод валідації значення поля
     if (String(value).length < 1) {
       return this.FIELD_ERROR.IS_EMPTY
     }

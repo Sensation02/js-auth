@@ -1,3 +1,3 @@
-import { loadSession } from '../../script/session'
+import { loadSession } from '../../script/session' // завантажуємо метод завантаження сесії
 
-loadSession()
+loadSession() // завантажуємо сесію

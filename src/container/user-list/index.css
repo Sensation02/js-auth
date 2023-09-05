@@ -78,15 +78,26 @@
   color: #888888;
 }
 
-.skeleton {
-  animation: skeleton-animation 1s infinite alternate;
+.user {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-
-@keyframes skeleton-animation {
-  from {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-  to {
-    background-color: rgba(0, 0, 0, 0.15);
-  }
+.user--click {
+  cursor: pointer;
+  transition: opacity 0.7s;
+  text-decoration: none;
+}
+.user--click:hover {
+  opacity: 0.7;
+}
+.user__title {
+  font-size: 16px;
+  height: 16px;
+  color: #363636;
+}
+.user__sub {
+  font-size: 14px;
+  height: 14px;
+  color: #888888;
 }

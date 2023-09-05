@@ -29,6 +29,21 @@ body {
   padding: s.space(8) s.space(6);
   width: 100%;
   height: fit-content;
+
+  &__divider {
+    display: block;
+    border: none;
+    width: 100%;
+    margin: 0;
+    height: 1px;
+    background-color: s.color(divider);
+  }
+
+  &--top {
+    display: flex;
+    flex-direction: column;
+  }
+
   &--background {
     background-image: url('/svg/background.svg');
     background-repeat: no-repeat;

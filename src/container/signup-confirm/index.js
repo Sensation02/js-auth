@@ -63,7 +63,7 @@ class SignupConfirmForm extends Form {
       [this.FIELD_NAME.CODE]: Number(
         this.value[this.FIELD_NAME.CODE],
       ),
-      token: getTokenSession(),
+      token: getTokenSession(), // отримуємо токен сесії
     })
   }
 }

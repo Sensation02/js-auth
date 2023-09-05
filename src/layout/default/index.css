@@ -27,6 +27,17 @@ body {
   height: -moz-fit-content;
   height: fit-content;
 }
+.page__divider {
+  display: block;
+  border: none;
+  width: 100%;
+  margin: 0;
+  height: 1px;
+}
+.page--top {
+  display: flex;
+  flex-direction: column;
+}
 .page--background {
   background-image: url("/svg/background.svg");
   background-repeat: no-repeat;
